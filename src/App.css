@@ -1,38 +1,193 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --primary-orange: #f9ab00;
+  --primary-dark: #212529;
+  --primary-white: #fff;
+  --primary-red: #ef4035;
+  --primary-hover-red: #f33501;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* #################### NavBar  ###################### */
+nav {
+  z-index: 2;
+  background-color: #000 !important;
+}
+
+@media (max-width: 750px) {
+  .navbar-brand {
+    margin-bottom: 110px;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar {
+  height: 5rem;
+  justify-content: space-between;
+  position: sticky;
+}
+.navbar-brand {
+  padding-left: 1rem;
+}
+.nav-item .nav-link {
+  cursor: pointer;
+  color: var(--primary-white);
+  margin-right: 1rem;
+  border-top: 0.1875rem solid #000;
+}
+.navbar-nav > li > a.active,
+.navbar-nav > li > a:focus {
+  color: var(--primary-white);
+  border-top: 0.1875rem solid var(--primary-orange);
+}
+
+.nav-item .nav-link:hover {
+  color: var(--primary-white);
+  border-top: 0.1875rem solid var(--primary-orange);
+}
+
+.nav-menu {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-gap: 10px;
+  list-style: none;
+  margin-left: auto;
+}
+.icon {
+  color: var(--primary-white);
+}
+.MenuIcon {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-brand {
+    width: 7rem;
+  }
+  .main-info h3 {
+    font-size: 1.5rem !important;
+  }
+  .main-info p {
+    font-size: 1.1rem !important;
+  }
+  .typed-header {
+    font-size: 1.7rem;
+  }
+  .particles-canvas {
+    display: none;
+  }
+  .navbar {
+    position: relative;
+  }
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+
+  .nav-menu.active {
+    background: #000;
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 3;
+  }
+  .nav-link {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+  }
+  .nav-link:hover {
+    color: var(--primary-white);
+    border-top: 0.1875rem solid var(--primary-orange);
+  }
+  .nav-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(25%, 50%);
+  }
+  .MenuIcon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+}
+/* ################## Header ########################## */
+.header-wrapper {
+  position: relative;
+  background: url("https://www.open.edu/openlearn/ocw/pluginfile.php/1317197/mod_resource/content/0/sc_1_olhp_786px.jpg")
+    no-repeat;
+  background-color: rgba(0, 0, 0, 0.9);
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+}
+
+.main-info {
   display: flex;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+}
+.main-info h3 {
+  color: var(--primary-orange);
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+.main-info p {
+  color: var(--primary-white);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.main-info .typed-header {
+  color: var(--primary-white);
+  font-size: 2rem;
+  font-weight: 700;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-outline {
+  margin: 2rem;
+  padding: 0.625rem 0.75rem 0.75rem 0.75rem;
+  color: var(--primary-white);
+  font-weight: bold;
+  border-radius: 0.1rem;
+  border: 1px solid var(--primary-red);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.btn-outline:hover {
+  background-color: var(--primary-hover-red);
+  color: var(--primary-white);
+  font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.tsparticles-canvas-el {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
 }
